@@ -26,7 +26,7 @@ function createBoxes(amount){
 }
 
 function destroyBoxes() {
-  const boxesContainer = document.getElementById("boxes");
+  const boxes = document.getElementById("boxes");
   boxes.innerHTML = ''; 
 }
 
