@@ -25,45 +25,22 @@ const images = [
   }
 ];
 
-
-
 const list = document.querySelector("ul.gallery");
+const fragment = document.createDocumentFragment(); 
 
 images.forEach(image => {
   const listItem = document.createElement("li");
-  
   const img = document.createElement("img");
-  
-  img.src = image.url; // Виправлено назву змінної та присвоєння властивості src
+
+  img.src = image.url;
   img.alt = image.alt;
 
   listItem.appendChild(img);
-
-  list.appendChild(listItem); // Виправлено appendChild
+  fragment.appendChild(listItem); 
 });
 
-list.classList.add("gallery_styles")
 
+list.appendChild(fragment);
 
-
-
-
-
-
-
-
-
-
-// const firstElement = document.createElement("li")
-// list.append(firstElement)
-
-
-// const secondElement = document.createElement("li")
-// list.append(secondElement)
-
-
-// const lastElement = document.createElement("li")
-// list.append(lastElement)
-
-
+list.classList.add("gallery_styles");
 

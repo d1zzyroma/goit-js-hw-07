@@ -1,35 +1,29 @@
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-
-
-
-
 function createBoxes(amount){
   const boxes = document.getElementById("boxes");
   boxes.innerHTML = '';
 
+  const fragment = document.createDocumentFragment(); 
+
   let size = 30;
-  for(let i =0; i < amount; i++){
+  for(let i = 0; i < amount; i++){
     const box = document.createElement("div");
 
     box.style.width = `${size}px`;
     box.style.height = `${size}px`;
     box.style.backgroundColor = getRandomHexColor();
 
-    boxes.appendChild(box);
+    fragment.appendChild(box); 
 
     size += 10;
   }
+
+  boxes.appendChild(fragment); 
 }
 
 function destroyBoxes() {
   const boxes = document.getElementById("boxes");
   boxes.innerHTML = ''; 
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const createBtn = document.querySelector("[data-create]");
@@ -40,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const amount = parseInt(input.value);
     if (amount >= 1 && amount <= 100) {
       createBoxes(amount);
-      input.value = ''; // Clear input value
+      input.value = ''; // Очищаємо значення поля вводу
     } else {
       alert('Please enter a number between 1 and 100.');
     }
